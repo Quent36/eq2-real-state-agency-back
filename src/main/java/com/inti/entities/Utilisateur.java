@@ -1,15 +1,23 @@
 package com.inti.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Utilisateur {
-	
-	private Long idUtilisateur;
+public class Utilisateur implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id_utilisateur;
 	private String nom;
 	private String prenom;
 	private String age;
@@ -17,5 +25,9 @@ public class Utilisateur {
 	private String username;
 	private String password;
 	
+	@JoinTable(name = "profil", joinColumns = {
+			@JoinColumn(name = "id_utilisateur", referencedColumnName = "idUtilisateur") },inverseJoinColumns = {
+					@JoinColumn(name = "id_role", table = "role", referencedColumnName = "idRole")})
+	private Role role;
 
 }
