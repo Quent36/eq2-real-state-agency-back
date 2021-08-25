@@ -13,10 +13,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 @Entity
 public class Offre implements Serializable {
@@ -29,8 +33,7 @@ public class Offre implements Serializable {
 	@Lob
 	private byte[] image;
 
-	private enum typeOffre {LOCATION, ACHAT};
-
+	private TypeOffre typeOffre;
 	@OneToMany
 	@JoinTable(name = "Offre_Evaluation", joinColumns = {
 			@JoinColumn(name = "offre_id", referencedColumnName = "id_offre") }, inverseJoinColumns = {
