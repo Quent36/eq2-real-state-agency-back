@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Appartement;
-import com.inti.entities.Appartement;
 import com.inti.services.interfaces.AppartementService;
 
 @CrossOrigin

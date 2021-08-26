@@ -30,10 +30,16 @@ public class Utilisateur implements Serializable {
 	@Column(unique = true)
 	private String username;
 	private String password;
+	@Builder.Default
 	private boolean enabled = true;
 	
 	@ManyToOne
 	@JoinColumn(name="role_id", referencedColumnName = "id_role")
 	private Role role;
 
+	public Utilisateur(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 }
