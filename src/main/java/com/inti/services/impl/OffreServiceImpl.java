@@ -40,27 +40,18 @@ public class OffreServiceImpl implements OffreService {
 	}
 
 	@Override
-	public List<Offre> findOffreByTypeOffre(TypeOffre typeOffre) {
+	public List<Offre> findByTypeOffre(TypeOffre typeOffre) {
 		return offreRepository.findOffreByTypeOffre(typeOffre);
 	}
 
+
 	@Override
-	public List<Offre> findOffreByDatePublication(Date datePublication) {
-		return offreRepository.findOffreByDatePublication(datePublication);
+	public List<Offre> findByLogement(Logement logement) {
+		return offreRepository.findByLogement(logement);
 	}
 
 	@Override
-	public List<Offre> findOffreByEvaluation(Evaluation evaluation) {
-		return offreRepository.findOffreByEvaluation(evaluation);
-	}
-
-	@Override
-	public List<Offre> findOffreByLogement(Logement logement) {
-		return offreRepository.findOffreByLogement(logement);
-	}
-
-	@Override
-	public List<Offre> findOffreByPrix(double prix) {
+	public List<Offre> findByPrix(double prix) {
 		return offreRepository.findOffreByPrix(prix);
 	}
 

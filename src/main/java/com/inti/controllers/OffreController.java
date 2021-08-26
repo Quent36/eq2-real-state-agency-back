@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Evaluation;
+import com.inti.entities.Logement;
 import com.inti.entities.Offre;
 import com.inti.entities.TypeOffre;
 import com.inti.services.interfaces.EvaluationService;
@@ -47,25 +48,21 @@ public class OffreController {
 	}
 
 	@RequestMapping(value = "/offres/{typeOffre}", method = RequestMethod.GET)
-	public List<Offre> findOffreByTypeOffre(@PathVariable("typeOffre") TypeOffre typeOffre) {
-		return offreService.findOffreByTypeOffre(typeOffre);
+	public List<Offre> findByTypeOffre(@PathVariable("typeOffre") TypeOffre typeOffre) {
+		return offreService.findByTypeOffre(typeOffre);
 	}
 
-	@RequestMapping(value = "/offres/{datePublication}", method = RequestMethod.GET)
-	public List<Offre> findOffreByDatePublication(@PathVariable("datePublication") Date datePublication) {
-		return offreService.findOffreByDatePublication(datePublication);
-	}
-
-	@RequestMapping(value = "/offres/{evaluation}", method = RequestMethod.GET)
-	public List<Offre> findOffreByEvaluation(@PathVariable("evaluation") Evaluation evaluation) {
-		return offreService.findOffreByEvaluation(evaluation);
-	}
 
 	@RequestMapping(value = "/offres/{prix}", method = RequestMethod.GET) // prix
-	public List<Offre> findOffreByPrix(@PathVariable("prix") double prix) {
-		return offreService.findOffreByPrix(prix);
+	public List<Offre> findByPrix(@PathVariable("prix") double prix) {
+		return offreService.findByPrix(prix);
 	}
-
+	
+	@RequestMapping(value = "/offres/{logement}", method = RequestMethod.GET) // prix
+	public List<Offre> findByLogement(@PathVariable("logement") Logement logement) {
+		return offreService.findByLogement(logement);
+	}
+	
 	@DeleteMapping("/offres/{idOffre}")
 	public void deleteOffre(@PathVariable("idOffre") Long id) {
 		offreService.deleteOffre(id);
