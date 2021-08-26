@@ -14,6 +14,6 @@ public interface AdresseService {
 
 	void deleteAdresse(Long id);
 	
-	Adresse findByVille(String ville);
+	List<Adresse> findByVille(String ville);
 
 }

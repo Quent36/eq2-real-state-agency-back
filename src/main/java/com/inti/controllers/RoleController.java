@@ -46,7 +46,7 @@ public class RoleController {
 	}
 	
 	@PutMapping("/roles/{idRole}")
-	public Role updateRole(@PathVariable("id") Long id_role, @RequestBody Role role) {
+	public Role updateRole(@PathVariable("idRole") Long id_role, @RequestBody Role role) {
 
 		Role currentRole = roleService.findRoleById(id_role);
 

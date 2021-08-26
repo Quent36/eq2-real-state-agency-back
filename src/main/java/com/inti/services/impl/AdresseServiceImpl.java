@@ -36,7 +36,7 @@ public class AdresseServiceImpl implements AdresseService{
 	}
 
 	@Override
-	public Adresse findByVille(String ville) {
+	public List<Adresse> findByVille(String ville) {
 		return adresseRepository.findByVille(ville);
 	}
 }

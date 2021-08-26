@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,9 +29,7 @@ public class Evaluation implements Serializable {
 	private Long id_evaluation;
 	private String commentaire;
 	
-	@OneToMany
-	@JoinTable(name="Evaluation_Note", joinColumns = {
-			@JoinColumn(name="evaluation_id",referencedColumnName = "id_evaluation")},inverseJoinColumns = {
-					@JoinColumn(name="id_note", table ="note",referencedColumnName = "id_note")	})
-	private List<Note> note;
+	@OneToOne
+	@JoinColumn(name="note_id", referencedColumnName = "id_note")
+	private Note note;
 }
