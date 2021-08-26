@@ -57,7 +57,7 @@ public class AdresseController {
 	}
 	
 	@GetMapping("/adresses/ville/{ville}")
-	public Adresse findByVille(@PathVariable("ville") String ville) {
+	public List<Adresse> findByVille(@PathVariable("ville") String ville) {
 		return adresseService.findByVille(ville);
 	}
 

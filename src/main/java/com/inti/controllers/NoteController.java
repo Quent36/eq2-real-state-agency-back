@@ -46,7 +46,7 @@ public class NoteController {
 	}
 
 	@PutMapping("/notes/{idNotes}")
-	public Note updateNote(@PathVariable("id") Long id_note, @RequestBody Note note) {
+	public Note updateNote(@PathVariable("idNotes") Long id_note, @RequestBody Note note) {
 
 		Note currentNote = noteService.findNoteById(id_note);
 

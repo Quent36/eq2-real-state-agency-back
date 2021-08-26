@@ -59,7 +59,7 @@ public class UtilisateurController {
 		utilisateurService.deleteUtilisateur(id);
 	}
 
-	@PutMapping("/users/{idUsers}")
+	@PutMapping("/utilisateurs/{idUsers}")
 	public Utilisateur updateUtilisateur(@PathVariable("idUsers") Long id_utilisateur,
 			@RequestBody Utilisateur utilisateur) {
 
