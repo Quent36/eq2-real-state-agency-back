@@ -23,7 +23,7 @@ public class Adresse implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_adresse")
-	private Long id;
+	private Long idAdresse;
 	private String ville;
 	private String rue;
 	private int numero;

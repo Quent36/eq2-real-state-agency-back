@@ -38,7 +38,7 @@ public class Logement implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_logement")
-	protected Long id;
+	protected Long idLogement;
 	protected double surface;
 	protected int nbPiece;
 	protected int nbChambre;

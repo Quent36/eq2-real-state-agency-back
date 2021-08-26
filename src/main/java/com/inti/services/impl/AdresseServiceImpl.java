@@ -34,4 +34,9 @@ public class AdresseServiceImpl implements AdresseService{
 	public void deleteAdresse(Long id) {
 		adresseRepository.deleteById(id);
 	}
+
+	@Override
+	public Adresse findByVille(String ville) {
+		return adresseRepository.findByVille(ville);
+	}
 }
