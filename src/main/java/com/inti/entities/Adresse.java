@@ -27,7 +27,7 @@ public class Adresse implements Serializable{
 	private String ville;
 	private String rue;
 	private int numero;
-	private int codePostal;
+	private String codePostal;
 	private String complement;
 	
 }
