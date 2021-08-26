@@ -39,11 +39,6 @@ public class OffreServiceImpl implements OffreService {
 		offreRepository.deleteById(id);
 	}
 
-	@Override
-	public List<Offre> findByTypeOffre(TypeOffre typeOffre) {
-		return offreRepository.findOffreByTypeOffre(typeOffre);
-	}
-
 
 	@Override
 	public List<Offre> findByLogement(Logement logement) {
@@ -52,7 +47,12 @@ public class OffreServiceImpl implements OffreService {
 
 	@Override
 	public List<Offre> findByPrix(double prix) {
-		return offreRepository.findOffreByPrix(prix);
+		return offreRepository.findByPrix(prix);
+	}
+
+	@Override
+	public List<Offre> findByTypeOffre(TypeOffre typeOffre) {
+		return offreRepository.findByTypeOffre(typeOffre);
 	}
 
 }
