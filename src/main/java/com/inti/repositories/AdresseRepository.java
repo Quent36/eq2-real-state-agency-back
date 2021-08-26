@@ -8,4 +8,6 @@ import com.inti.entities.Adresse;
 @Repository
 public interface AdresseRepository extends JpaRepository<Adresse, Long>{
 
+	Adresse findByVille(String ville);
+	
 }
