@@ -23,9 +23,19 @@ import com.inti.services.interfaces.UtilisateurService;
 public class UtilisateurController {
 	@Autowired
 	UtilisateurService utilisateurService;
+	
+//	@Autowired
+//	PasswordEncoder passwordEncoder;
 
 	@PostMapping("/utilisateurs")
 	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
+//		Utilisateur user = new Utilisateur();
+//		user.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
+//		user.setUsername(utilisateur.getUsername());
+//		user.setNomUtilisateur(utilisateur.getNomUtilisateur());
+//		user.setPrenomUtilisateur(utilisateur.getPrenomUtilisateur());
+//		user.setRoles(utilisateur.getRoles());
+//		return utilisateurService.saveUtilisateur(user);
 		return utilisateurService.saveUtilisateur(utilisateur);
 	}
 
@@ -39,7 +49,7 @@ public class UtilisateurController {
 		return utilisateurService.findUtilisateurById(id);
 	}
 	
-	@RequestMapping(value = "/utilisateurs/{username}", method = RequestMethod.GET)
+	@RequestMapping(value = "/utilisateurs/username/{username}", method = RequestMethod.GET)
 	public Utilisateur findUtilisateursByUsername(@PathVariable("username") String username) {
 		return utilisateurService.findByUsername(username);
 	}
