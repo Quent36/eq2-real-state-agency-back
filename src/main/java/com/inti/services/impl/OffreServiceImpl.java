@@ -52,4 +52,14 @@ public class OffreServiceImpl implements OffreService {
 		return offreRepository.findByPrix(prix);
 	}
 
+	@Override
+	public List<Offre> findByMaison() {
+		return offreRepository.findByMaison();
+	}
+
+	@Override
+	public List<Offre> findByAppartement() {
+		return offreRepository.findByAppartement();
+	}
+
 }
