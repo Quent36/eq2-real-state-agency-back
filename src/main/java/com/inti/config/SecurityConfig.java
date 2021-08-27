@@ -26,10 +26,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		auth.userDetailsService(appUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
 	}
 	
+	//.authorizeRequests().anyRequest().authenticated() 
 	protected void configure(HttpSecurity http) throws Exception{
 		http
 			.authorizeRequests()
-				.anyRequest().authenticated() 
+				.anyRequest().permitAll() 
 			.and()
 			.formLogin()
 				.permitAll() 
