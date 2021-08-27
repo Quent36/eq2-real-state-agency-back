@@ -20,6 +20,7 @@ public class LoginController {
 	@CrossOrigin
 	@GetMapping("/users")
 	public Utilisateur login(Principal principal) {
+		System.out.println("Entree dans login back et username " + principal.getName());
 		return utilisateurService.findByUsername(principal.getName());
 	}
 
