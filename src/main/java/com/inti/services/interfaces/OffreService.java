@@ -21,5 +21,9 @@ public interface OffreService {
 	List<Offre> findByLogement(Logement logement);
 
 	List<Offre> findByPrix(double prix);
+	
+	List<Offre> findByMaison();
+	
+	List<Offre> findByAppartement();
 
 }

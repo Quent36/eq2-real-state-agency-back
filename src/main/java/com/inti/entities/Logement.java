@@ -29,7 +29,7 @@ import lombok.experimental.SuperBuilder;
 @DiscriminatorColumn(
 	    discriminatorType = DiscriminatorType.STRING,
 	    name = "logement_type",
-	    columnDefinition = "VARCHAR(10)"
+	    columnDefinition = "VARCHAR(255)"
 	)
 public class Logement implements Serializable{
 	
