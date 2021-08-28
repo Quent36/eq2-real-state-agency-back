@@ -34,7 +34,9 @@ public class RoleController {
 	public List<Role> findAll() {
 		return roleService.findAllRole();
 	}
-
+	
+	//@RequestMapping(value="/roles/")
+	
 	@RequestMapping(value = "/roles/{idRole}", method = RequestMethod.GET)
 	public Role findRoleById(@PathVariable("idRole") Long id) {
 		return roleService.findRoleById(id);
