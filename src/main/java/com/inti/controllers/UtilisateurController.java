@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Utilisateur;
+import com.inti.services.interfaces.RoleService;
 import com.inti.services.interfaces.UtilisateurService;
 
 @CrossOrigin
@@ -26,11 +27,18 @@ public class UtilisateurController {
 	UtilisateurService utilisateurService;
 	
 	@Autowired
+	RoleService roleService;
+	
+	@Autowired
 	PasswordEncoder passwordEncoder;
 
 	@PostMapping("/utilisateurs")
 	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
 		Utilisateur user = utilisateur;
+		System.out.println("FROM UTILISATEUR = JSON " + utilisateur.getRole().getId_role());
+		
+		user.setRole(roleService.findRoleById(utilisateur.getRole().getId_role()));
+		System.out.println("FROM USER CREATED IN CONTROLLER" + user.getRole().getId_role());
 		user.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
 		return utilisateurService.saveUtilisateur(user);
 	}

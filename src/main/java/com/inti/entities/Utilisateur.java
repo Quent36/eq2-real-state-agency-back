@@ -2,6 +2,7 @@ package com.inti.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class Utilisateur implements Serializable {
 	@Builder.Default
 	private boolean enabled = true;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="role_id", referencedColumnName = "id_role")
 	private Role role;
 
