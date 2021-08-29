@@ -50,6 +50,7 @@ public class AppartementController {
 	@PutMapping("/appartements/{idAppartements}")
 	public Appartement updateAppartement(@PathVariable("idAppartements") Long id, @RequestBody Appartement appartement) {
 		Appartement currentAppartement= appartementService.findOne(id);
+		currentAppartement.setIdLogement(id);
 		currentAppartement.setSurface(appartement.getSurface());
 		currentAppartement.setNbPiece(appartement.getNbPiece());
 		currentAppartement.setNbChambre(appartement.getNbChambre());
@@ -57,6 +58,7 @@ public class AppartementController {
 		currentAppartement.setTerrasse(appartement.isTerrasse());
 		currentAppartement.setAscenseur(appartement.isAscenseur());
 		currentAppartement.setEtage(appartement.getEtage());
+		currentAppartement.setTypeLogement(appartement.getTypeLogement());
 		return appartementService.saveAppartement(currentAppartement);
 	}
 }
