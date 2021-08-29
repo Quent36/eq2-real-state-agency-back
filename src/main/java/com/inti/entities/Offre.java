@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,15 +39,16 @@ public class Offre implements Serializable {
 	private Date datePublication;
 	@Lob
 	private byte[] image;
-
+	
+	@Enumerated(EnumType.STRING)
 	private TypeOffre typeOffre;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinTable(name = "Offre_Evaluation", joinColumns = {
 			@JoinColumn(name = "offre_id", referencedColumnName = "id_offre") }, inverseJoinColumns = {
 					@JoinColumn(name = "id_evaluation", table = "evaluation", referencedColumnName = "id_evaluation") })
 	private List<Evaluation> evaluation;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="logement_id", referencedColumnName = "id_logement")
 	private Logement logement;
 

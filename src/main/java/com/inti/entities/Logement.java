@@ -2,6 +2,7 @@ package com.inti.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -42,9 +43,10 @@ public class Logement implements Serializable{
 	protected int nbPiece;
 	protected int nbChambre;
 	protected boolean garage;
+	protected String typeLogement;
 	
 	//Association uml
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL) //fetch = FetchType.LAZY, 
 	@JoinColumn(name = "adresse_id")
 	protected Adresse adresse;
 
