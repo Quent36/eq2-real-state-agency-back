@@ -3,6 +3,7 @@ package com.inti.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,7 @@ public class Evaluation implements Serializable {
 	private Long id_evaluation;
 	private String commentaire;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="note_id", referencedColumnName = "id_note")
 	private Note note;
 }
