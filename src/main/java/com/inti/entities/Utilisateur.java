@@ -34,7 +34,7 @@ public class Utilisateur implements Serializable {
 	@Builder.Default
 	private boolean enabled = true;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne()
 	@JoinColumn(name="role_id", referencedColumnName = "id_role")
 	private Role role;
 
