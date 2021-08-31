@@ -84,7 +84,7 @@ public class OffreController {
 		offreService.deleteOffre(id);
 	}
 
-	@PutMapping(value="/offres/{idOffre}", produces = "application/json")
+	@PutMapping(value="/offres/{idOffre}") //, produces = "application/json"
 	public Offre updateOffre(@PathVariable("idOffre") Long id_offre, @RequestBody Offre offre) { //,@RequestBody Evaluation evaluation
 
 		Offre currentOffre = offreService.findOffreById(id_offre);
