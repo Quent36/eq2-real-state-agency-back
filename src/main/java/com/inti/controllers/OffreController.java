@@ -84,13 +84,16 @@ public class OffreController {
 		offreService.deleteOffre(id);
 	}
 
+<<<<<<< HEAD
 	@PutMapping(value="/offres/{idOffre}") //, produces = "application/json"
+=======
+	@PutMapping(value="/offres/{idOffre}", consumes = {"application/json"})
+>>>>>>> 7d692ad9539338f71513b7002bb3981145e97aa7
 	public Offre updateOffre(@PathVariable("idOffre") Long id_offre, @RequestBody Offre offre) { //,@RequestBody Evaluation evaluation
 
 		Offre currentOffre = offreService.findOffreById(id_offre);
-		// Evaluation currentEvaluation =
-		// evaluationService.findEvaluationById(evaluation);
-		// currentOffre.setLogement(offre.getLogement());
+	
+		currentOffre.setLogement(offre.getLogement());
 		currentOffre.setPrix(offre.getPrix());
 		currentOffre.setTypeOffre(offre.getTypeOffre());
 		currentOffre.setImage(offre.getImage());

@@ -71,7 +71,7 @@ public class UtilisateurController {
 
 		currentUser.setNom(utilisateur.getNom());
 		currentUser.setPrenom(utilisateur.getPrenom());
-		currentUser.setRole(roleService.findRoleById(utilisateur.getRole().getId_role()));
+		//currentUser.setRole(roleService.findRoleById(utilisateur.getRole().getId_role()));
 		currentUser.setAge(utilisateur.getAge());
 		currentUser.setRole(utilisateur.getRole());
 		currentUser.setUsername(utilisateur.getUsername());
