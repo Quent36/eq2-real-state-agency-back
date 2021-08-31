@@ -19,6 +19,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -47,7 +49,7 @@ public class Offre implements Serializable {
 			@JoinColumn(name = "offre_id", referencedColumnName = "id_offre") }, inverseJoinColumns = {
 					@JoinColumn(name = "id_evaluation", table = "evaluation", referencedColumnName = "id_evaluation") })
 	private List<Evaluation> evaluation;
-
+	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="logement_id", referencedColumnName = "id_logement")
 	private Logement logement;
